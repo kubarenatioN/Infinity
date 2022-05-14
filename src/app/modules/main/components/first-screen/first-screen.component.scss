@@ -1,0 +1,16 @@
+
+
+.first-screen {
+	min-height: 100vh;
+	&__wrapper {
+		position: relative;
+		background-image: url('/assets/first-screen-bg.jpg');
+		background-size: cover;
+		background-position: 60% center;
+	}
+}
+
+app-header {
+	width: 100%;
+	position: absolute;
+}
