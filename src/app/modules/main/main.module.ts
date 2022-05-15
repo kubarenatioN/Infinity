@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FirstScreenComponent } from './components/first-screen/first-screen.component';
 import { AuctionsComponent } from './components/auctions/auctions.component';
 import { TopCollectionsComponent } from './components/top-collections/top-collections.component';
+import { VerticalSwiperComponent } from './components/vertical-swiper/vertical-swiper.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TopCollectionsComponent } from './components/top-collections/top-collec
     FirstScreenComponent,
     AuctionsComponent,
     TopCollectionsComponent,
+    VerticalSwiperComponent,
   ],
   imports: [
     SharedModule,

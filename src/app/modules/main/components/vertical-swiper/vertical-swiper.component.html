@@ -1,0 +1,35 @@
+<div class="btn-wrapper prev-btn-wrapper">
+	<button class="prev-btn btn-reset">
+		<img src="assets/icons/arrow-top.svg" alt="Prev Slide">
+	</button>
+</div>
+<swiper
+	#swiper
+	[config]="config"
+    >
+      <ng-template swiperSlide>
+		  <div class="slide">
+			  <img src="db/images/vertical/img-1.png" alt="NFT slide 1">
+		  </div>
+	  </ng-template>
+      <ng-template swiperSlide>
+		  <div class="slide">
+			  <img src="db/images/vertical/img-2.png" alt="NFT slide 2">
+		  </div>
+	  </ng-template>
+      <ng-template swiperSlide>
+		  <div class="slide">
+			  <img src="db/images/vertical/img-1.png" alt="NFT slide 3">
+		  </div>
+	  </ng-template>
+      <ng-template swiperSlide>
+		  <div class="slide">
+			  <img src="db/images/vertical/img-2.png" alt="NFT slide 4">
+		  </div>
+	  </ng-template>
+</swiper>
+<div class="btn-wrapper next-btn-wrapper">
+	<button class="next-btn btn-reset">
+		<img src="assets/icons/arrow-down.svg" alt="Next Slide">
+	</button>
+</div>

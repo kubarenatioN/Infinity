@@ -1,12 +1,45 @@
 
 
 .first-screen {
+	padding-top: 100px;
+	padding-bottom: 150px;
 	min-height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	
 	&__wrapper {
 		position: relative;
 		background-image: url('/assets/first-screen-bg.jpg');
 		background-size: cover;
 		background-position: 60% center;
+	}
+
+	&__text {
+		align-self: flex-end;
+	}
+
+	&__title {
+		font-size: 72px;
+		text-shadow: 3px 4px 3px #000;
+	}
+
+	&__subtitle {
+		font-size: 36px;
+	}
+
+	&__text-buttons {
+		margin-top: 30px;
+	}
+
+	&__link {
+		font-size: 20px;
+		padding: 12px 40px;
+		margin-right: 20px;
+	}
+
+	&__slider-wrapper {
+		align-self: flex-end;
+		padding-bottom: 60px;
 	}
 }
 
@@ -14,3 +47,4 @@ app-header {
 	width: 100%;
 	position: absolute;
 }
+

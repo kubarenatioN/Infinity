@@ -1,0 +1,27 @@
+.footer {
+	background-color: var(--black);
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 0;
+	}
+	&__nav {
+		display: flex;
+		align-items: center;
+		&-item {
+			margin-right: 20px;
+		}
+	}
+	&__developer {
+		font-size: 14px;
+		opacity: 1;
+		color: #ccc;
+		& a {
+			transition: .2s;
+		}
+		& a:hover {
+			color: var(--white);
+		}
+	}
+}

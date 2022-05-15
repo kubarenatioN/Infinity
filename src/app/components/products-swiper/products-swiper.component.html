@@ -1,0 +1,44 @@
+<swiper
+	class="slider1"
+	[config]="config"
+    >
+      <ng-template swiperSlide
+	  	class="slide-wrapper"
+	  	*ngFor="let slide of slides">
+		  <div class="slide">
+			  <img src="db/images/top-sales/{{slide.img}}" alt="">
+			  <p class="name">{{slide.name}}</p>
+			  <a class="collection" href="#">Crypto Unicorns Market</a>
+			  <div class="footer">
+				  <span class="price">
+					  50 ETH
+				  </span>
+				  <a href="#" class="purchase">
+					  Buy now
+				  </a>
+			  </div>
+		  </div>
+	  </ng-template>
+</swiper>
+<swiper
+	class="slider2"
+	[config]="config2"
+    >
+      <ng-template swiperSlide 
+	  	class="slide-wrapper"
+	  	*ngFor="let slide of slides.reverse()">
+		  <div class="slide">
+			  <img src="db/images/top-sales/{{slide.img}}" alt="">
+			  <p class="name">{{slide.name}}</p>
+			  <a class="collection" href="#">Crypto Unicorns Market</a>
+			  <div class="footer">
+				  <span class="price">
+					  50 ETH
+				  </span>
+				  <a href="#" class="purchase">
+					  Buy now
+				  </a>
+			  </div>
+		  </div>
+	  </ng-template>
+</swiper>

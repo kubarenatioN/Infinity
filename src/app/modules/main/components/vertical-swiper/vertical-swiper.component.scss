@@ -1,0 +1,37 @@
+swiper {
+	height: 420px;
+	margin: 10px 0;
+}
+.swiper-slide {
+	display: flex;
+	align-items: center;
+}
+.slide {
+	height: 220px;
+	display: flex;
+	align-items: center;
+	& img {
+		height: 180px;
+		display: block;
+		object-fit: cover;
+	}
+}
+
+.btn-wrapper {
+	& button {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background: var(--accent-gradient);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+		cursor: pointer;
+	}
+	& img {
+		width: 20px;
+		display: block;
+	}
+}
+
