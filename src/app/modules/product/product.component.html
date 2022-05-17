@@ -1,0 +1,73 @@
+<div class="product__wrapper">
+	<div class="container">
+		<ng-container *ngIf="product$ | async as product">
+
+			<div class="product">
+				<div class="product__top">
+					<div class="product__image">
+						<img src="http://localhost:3002/db/images/products/{{product.img}}" alt="">
+					</div>
+					<div class="product__content">
+						<h2 class="product__title title">
+							{{product.name}}
+						</h2>
+						<div class="product__subheading">
+							<span class="product__subheading-id">
+								#{{product.id}}
+							</span>
+							<ul class="product__subheading-tags">
+								tags
+							</ul>
+						</div>
+						<p class="product__descr">
+							descr
+						</p>
+						<div class="product__price-wrapper">
+							<span>Last Price</span>
+							<span class="product__price">{{product.price}} ETH</span>
+						</div>
+						<a 
+							[routerLink]="['/purchase']"
+							[queryParams]="{id: product.id}" 
+							class="product__purchase">
+							Buy now
+						</a>
+					</div>
+				</div>
+				<ul class="product__props">
+					<li 
+					*ngFor="let a of attributesMap$ | async"
+					class="product__prop">
+						<span>{{a[0]}}:</span>
+						<span>{{a[1]}}</span>
+					</li>
+				</ul>
+				<div class="product__other">
+					<h3 class="product__other-title">
+						Other from this collection
+					</h3>
+					<swiper
+						[config]="(config$ | async) || {}">
+						<ng-template 
+							*ngFor="let p of otherProducts$ | async | slice:0:5"
+							swiperSlide>
+							<div class="slide-wrapper">
+								<a 
+								[routerLink]="['/product']"
+								[queryParams]="{id: p.id}"	
+								class="slide">
+									<img src="http://localhost:3002/db/images/products/{{p.img}}" alt="">
+									<p class="name">
+										{{p.name}}
+									</p>
+								</a>
+							</div>
+						</ng-template>
+					</swiper>
+				</div>
+			</div>
+
+		</ng-container>
+
+	</div>
+</div>

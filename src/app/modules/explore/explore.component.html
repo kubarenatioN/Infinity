@@ -1,0 +1,46 @@
+<div class="explore__wrapper">
+	<div class="container">
+		<div class="explore">
+			<div class="explore__heading">
+				<h2 class="explore__title">
+					{{ (collection$ | async)?.name }}
+				</h2>
+			</div>
+			<div class="explore__inner">
+				<form #filtersForm="ngForm" class="explore__filters">
+					<div
+						class="filter__group filter__attribute"
+						*ngFor="let attribute of (collection$ | async)?.attributes">
+						<mat-expansion-panel>
+							<mat-expansion-panel-header>
+								<mat-panel-title>
+									{{ attribute.name }}
+								</mat-panel-title>
+							</mat-expansion-panel-header>
+							<div class="options__list">
+								<mat-checkbox
+									*ngFor="let opt of attribute.options"
+									[name]="opt"
+									[(ngModel)]="
+										model.attributesMapping[attribute.name][
+											opt
+										]
+									"
+								>
+									{{ opt }}
+								</mat-checkbox>
+							</div>
+						</mat-expansion-panel>
+					</div>
+				</form>
+				<div class="explore__content">
+					<div class="explore__sorting"></div>
+					<div class="explore__catalog">
+						<app-catalog [items]="(items$ | async) || []">
+						</app-catalog>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

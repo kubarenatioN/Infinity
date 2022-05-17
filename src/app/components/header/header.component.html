@@ -1,18 +1,18 @@
 <header class="header">
 	<div class="container">
 		<nav class="header__inner">
-			<a href="#">
+			<a [routerLink]="['/']">
 				<img src="assets/logo.svg" alt="" class="logo">
 			</a>
 			<ul class="header__nav">
 				<li class="header__nav-item">
-					<a class="header__nav-link" href="/explore">Explore</a>
+					<a class="header__nav-link" [routerLink]="['/explore']">Explore</a>
 				</li>
 				<li class="header__nav-item">
-					<a class="header__nav-link" href="/create">Create</a>
+					<a class="header__nav-link" [routerLink]="['/create']">Create</a>
 				</li>
 			</ul>
-			<a href="/profile" class="profile">
+			<a [routerLink]="['/profile']" class="profile">
 				Profile
 			</a>
 		</nav>

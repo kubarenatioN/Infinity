@@ -1,0 +1,19 @@
+.collections {
+	&__content {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	&__item-wrapper {
+		max-width: 25%;
+		width: 100%;
+		padding: 10px;
+	}
+	&__item {
+		display: inline-block;
+		width: 100%;
+		border-radius: 10px;
+		background-color: var(--white);
+		padding: 10px;
+		color: var(--black);
+	}
+}

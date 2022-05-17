@@ -1,0 +1,29 @@
+<div class="collections__wrapper">
+	<div class="container">
+		<div class="collections">
+			<div class="collections__heading">
+				<h2 class="collections__title">Explore Collections</h2>
+			</div>
+			<div class="collections__content"
+				*ngIf="collections$ | async as collections">
+				<div class="collections__item-wrapper"
+					*ngFor="let col of collections">
+
+					<a class="collections__item"
+						[routerLink]="['collection']"
+						[queryParams]="{id: col.id}">
+						<img 
+							class="image"
+							src="db/images/collections/{{col.image}}" alt="">
+						<p class="name">
+							{{col.name}}
+						</p>
+						<p>
+							descr...
+						</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

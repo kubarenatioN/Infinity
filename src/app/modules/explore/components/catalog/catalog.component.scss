@@ -1,0 +1,18 @@
+.catalog{
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__item-wrapper {
+		width: 25%;
+		padding: 0 8px;
+		margin-bottom: 10px;
+	}
+	&__item {
+		display: inline-block;
+		border-radius: 15px;
+		padding: 10px;
+		background-color: var(--black);
+	}
+}
