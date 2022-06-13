@@ -1,0 +1,103 @@
+<div class="auth__wrapper">
+	<div class="container">
+		<div class="auth">
+			<mat-tab-group
+				mat-align-tabs="center"
+				animationDuration="300ms">
+				<mat-tab 
+					class="login tab"
+					label="Log In">
+					<div class="login__wrapper form__wrapper">
+						<div class="form__image form__image-login">
+
+						</div>
+						<form 
+							class="form__login"
+							#loginForm="ngForm"	
+							(ngSubmit)="login()"
+						>
+							<mat-form-field class="login__input" appearance="fill">
+								<mat-label>Username</mat-label>
+								<input matInput
+									required
+									[(ngModel)]="loginModel.username"
+									name="username"
+								>
+							</mat-form-field>
+
+							<mat-form-field class="login__input" appearance="fill">
+								<mat-label>Password</mat-label>
+								<input matInput
+									type="password"
+									required
+									[(ngModel)]="loginModel.password"
+									name="password"
+								>
+							</mat-form-field>
+						
+							<button mat-raised-button 
+								class="login__submit" color="primary">Log In</button>
+						</form>
+					</div>
+				</mat-tab>
+				<mat-tab 
+					class="register tab" label="Register">
+					<div class="register__wrapper form__wrapper">
+						<div class="form__image form__image-register">
+
+						</div>
+						<form 
+						class="form__register"
+						#registerForm="ngForm"	
+						(ngSubmit)="register()"
+						>
+
+						<mat-form-field class="login__input" appearance="fill">
+							<mat-label>Name</mat-label>
+							<input matInput
+								required
+								[(ngModel)]="registerModel.name"
+								name="username"
+							>
+						</mat-form-field>
+
+						<mat-form-field class="login__input" appearance="fill">
+							<mat-label>Username</mat-label>
+							<input matInput
+								required
+								[(ngModel)]="registerModel.username"
+								name="username"
+							>
+						</mat-form-field>
+
+						<mat-form-field class="login__input" appearance="fill">
+							<mat-label>Password</mat-label>
+							<input matInput
+								type="password"
+								required
+								[(ngModel)]="registerModel.password"
+								name="password"
+							>
+						</mat-form-field>
+
+						<mat-form-field class="login__input" appearance="fill">
+							<mat-label>Repeat password</mat-label>
+							<input matInput
+								type="password"
+								required
+								[(ngModel)]="registerModel.passwordRepeat"
+								name="password_repeat"
+							>
+						</mat-form-field>
+					
+						<button mat-raised-button 
+							class="login__submit" color="primary">Register</button>
+
+						</form>
+					</div>
+
+				</mat-tab>
+			</mat-tab-group>
+		</div>
+	</div>
+</div>

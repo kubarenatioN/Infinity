@@ -1,0 +1,25 @@
+<div class="card__wrapper">
+	<a [routerLink]="['/product']"
+	[queryParams]="{id: item.id}" class="card">
+		<img 
+			class="image" 
+			src="http://localhost:3002/db/images/products/{{item.collectionId}}/{{item.img}}" alt="">
+		<p class="name">
+			{{item.name}}
+		</p>
+		<div class="footer">
+			<span class="price">
+				{{item.price}} ETH
+			</span>
+			<a 
+				[routerLink]="['/product']"
+				[queryParams]="{id: item.id}"
+				mat-raised-button
+				color="primary"
+				class="buy">
+				<span class="material-icons buy-icon">shopping_cart</span>
+				Buy
+			</a>
+		</div>
+	</a>
+</div>

@@ -14,12 +14,16 @@
 						[queryParams]="{id: col.id}">
 						<img 
 							class="image"
-							src="db/images/collections/{{col.image}}" alt="">
+							src="http://localhost:3002/db/images/collections/bg-{{col.id}}.png" alt="">
+						
 						<p class="name">
+							<img 
+							class="icon"
+							src="http://localhost:3002/db/images/collections/icon-{{col.id}}.png" alt="">
 							{{col.name}}
 						</p>
-						<p>
-							descr...
+						<p class="descr">
+							{{col.descr}}
 						</p>
 					</a>
 				</div>

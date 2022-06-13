@@ -1,0 +1,86 @@
+// @use '@angular/material' as mat;
+
+// @include mat.core();
+
+// $my-primary: mat.define-palette(mat.$indigo-palette, 100);
+// $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// $my-theme: mat.define-light-theme((
+//  color: (
+//    primary: $my-primary,
+//    accent: $my-accent,
+//  )
+// ));
+
+// // Emit theme-dependent styles for common features used across multiple components.
+// @include mat.core-theme($my-theme);
+
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after {
+	color: var(--accent-1);
+}
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+	background-color: var(--accent-1);
+}
+
+.mat-tab-label {
+	background-color: var(--white);
+	flex-grow: 1;
+    flex-basis: 100px;
+	font-size: 18px;
+	&.mat-tab-label {
+		opacity: 1;
+	}
+	&.mat-tab-label-active {
+		color: var(--accent-1);
+	}
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, 
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+	background-color: var(--accent-1);
+	height: 3px;
+}
+
+.mat-tab-nav-bar, .mat-tab-header {
+	border-bottom: none;
+}
+
+.mat-form-field-label {
+	color: rgba(255, 255, 255, .4);
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+	color: var(--white);
+}
+
+.mat-form-field-appearance-fill .mat-form-field-underline::before {
+	background-color: rgba(255, 255, 255, .4);
+}
+.mat-form-field-ripple {
+	background-color: rgba(255, 255, 255, .4);
+}
+.mat-form-field.mat-focused .mat-form-field-ripple {
+	background-color: var(--accent-1);
+}
+.mat-input-element {
+	caret-color: rgba(255, 255, 255, .4);
+}
+
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+	background-color: var(--accent-1);
+	padding: 2px 24px 0;
+	font-size: 16px;
+}
+
+.mat-expansion-panel {
+	background-color: var(--white);
+}
+
+@media (max-width: 640px) {
+	.mat-tab-label {
+		min-width: 20px !important;
+		padding: 0 12px !important;
+		font-size: 16px;
+	}
+}

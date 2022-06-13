@@ -13,10 +13,14 @@ export class DataService {
 
   public sendRequest<T>(payload: any): Observable<HttpResponse<T>> {
     const { method, url, params } = payload
+    let { body } = payload
+    if (!body) {
+      body = null
+    }
     const headers = new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
     })
-    const req = new HttpRequest(method, url, null, {
+    const req = new HttpRequest(method, url, body, {
       headers,
       responseType: 'json',
       params,

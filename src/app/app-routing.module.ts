@@ -12,6 +12,8 @@ const routes: Routes = [
   },
   { path: 'explore', loadChildren: () => import('./modules/explore/explore.module').then(m => m.ExploreModule) },
   { path: 'product', loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule) },
+  { path: 'profile', loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule) },
+  { path: 'stats', loadChildren: () => import('./modules/stats/stats.module').then(m => m.StatsModule) },
 ];
 
 @NgModule({

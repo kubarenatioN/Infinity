@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { EMPTY, filter, map, switchMap, tap } from 'rxjs';
+import { DataManagementService } from './services/data-management.service';
+import { DataStoreService } from './services/data-store.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +14,7 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private dataManagement: DataManagementService,
   ) {
 
   }
@@ -29,5 +32,7 @@ export class AppComponent implements OnInit {
         }),
       )
       .subscribe()
+
+    this.dataManagement.getStoredUser()
   }
 }

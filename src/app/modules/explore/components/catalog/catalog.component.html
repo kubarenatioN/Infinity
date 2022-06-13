@@ -2,23 +2,6 @@
 	<div 
 		class="catalog__item-wrapper"
 		*ngFor="let item of items">
-		<a 
-			[routerLink]="['/item']"
-			[queryParams]="{id: item.id}" 
-			class="catalog__item">
-			<img src="db/images/top-sales/{{item.img}}" alt="">
-			<p class="name">
-				{{item.name}}
-				<span>
-					id: {{item.id}}
-				</span>
-			</p>
-			<span class="price">
-				price: {{item.price}}
-			</span>
-			<p>
-				{{item.attributes | json}}
-			</p>
-		</a>
+		<app-nft-card [item]="item"></app-nft-card>
 	</div>
 </div>

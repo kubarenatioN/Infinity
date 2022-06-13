@@ -4,17 +4,74 @@
 			<a [routerLink]="['/']">
 				<img src="assets/logo.svg" alt="" class="logo">
 			</a>
-			<ul class="header__nav">
+			<ul class="header__nav" *ngIf="!isMobile">
 				<li class="header__nav-item">
 					<a class="header__nav-link" [routerLink]="['/explore']">Explore</a>
 				</li>
 				<li class="header__nav-item">
-					<a class="header__nav-link" [routerLink]="['/create']">Create</a>
+					<a class="header__nav-link" [routerLink]="['/stats']">Stats</a>
 				</li>
 			</ul>
-			<a [routerLink]="['/profile']" class="profile">
-				Profile
-			</a>
+			<div class="header__profile" *ngIf="!isMobile">
+				<a 
+				*ngIf="(user$ | async) === null"	
+				[routerLink]="['/profile']" class="profile">
+					Log In
+				</a>
+				<ng-container *ngIf="user$ | async as user">
+					<a [routerLink]="['/profile']" class="profile">
+						<span class="material-icons profile-icon">account_circle</span>
+						{{user.name}}
+					</a>
+					<button 
+					mat-raised-button
+					color="primary"
+					(click)="logout()"
+					class="profile__logout">
+						Log Out
+					</button>
+				</ng-container>
+			</div>
+			<div class="header__burger" *ngIf="isMobile">
+				<button class="header__burger-btn"
+				(click)="isMobileMenuOpen = !isMobileMenuOpen"
+				[ngClass]="isMobileMenuOpen ? 'active' : ''">
+					<span class="material-icons header__burger-icon">menu</span>
+				</button>
+				<ul class="header__burger-nav" 
+				[ngClass]="isMobileMenuOpen ? 'active' : ''">
+					<li class="header__burger-item">
+						<a class="header__burger-link" [routerLink]="['/explore']">Explore</a>
+					</li>
+					<li class="header__burger-item">
+						<a class="header__burger-link" [routerLink]="['/stats']">Stats</a>
+					</li>
+					<li 
+						class="header__burger-item"
+						*ngIf="(user$ | async) === null">
+						<a [routerLink]="['/profile']" class="profile profile--burger">
+							Log In
+						</a>
+					</li>
+					<ng-container *ngIf="user$ | async as user">
+						<li class="header__burger-item">
+							<a [routerLink]="['/profile']" class="profile profile--burger">
+								<span class="material-icons profile-icon">account_circle</span>
+								{{user.name}}
+							</a>
+						</li>
+						<li class="header__burger-item">
+							<button 
+								mat-raised-button
+								color="primary"
+								(click)="logout()"
+								class="profile__logout">
+								Log Out
+							</button>
+						</li>
+					</ng-container>
+				</ul>
+			</div>
 		</nav>
 	</div>
 </header>

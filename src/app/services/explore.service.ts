@@ -1,6 +1,6 @@
 import { parseI18nMeta } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Injectable } from '@angular/core';
-import { max, Observable } from 'rxjs';
+import { max, Observable, take } from 'rxjs';
 import { IFiltersMapping, IFiltersParams } from '../typings/filters';
 import { DataManagementService } from './data-management.service';
 import { DataStoreService } from './data-store.service';
@@ -21,6 +21,10 @@ export class ExploreService {
     console.log(filters);
     const params = this.createFiltersParams(filters)
     this.dataManagement.getCollectionItems(id, params)
+      .pipe(take(1))
+      .subscribe(items => {
+        this.dataStore.exploreItems = items
+      })
   }
 
   public getCollection(id: number) {
@@ -41,9 +45,9 @@ export class ExploreService {
       const name = a[0]
       const options = a[1]
       const values = Object.keys(options)
-      let attrQuery = values.filter(k => options[k]).join('|')
+      let attrQuery = values.filter(k => options[k]).map(o => o.toLowerCase()).join('|')
       if (attrQuery) {
-        params[`attributes.${name}_like`] = attrQuery
+        params[`attributes.${name.toLowerCase()}_like`] = attrQuery
       }
     })
 

@@ -22,6 +22,7 @@ export class ExploreComponent implements OnInit, AfterViewInit, OnDestroy {
   public collection$!: Observable<ICollection>
   public items$ = this.exploreService.items$
   public model!: FiltersModel
+  public isFiltersOpen = false;
   
   private collection!: ICollection
   private lifecycle: Subject<null> = new Subject();

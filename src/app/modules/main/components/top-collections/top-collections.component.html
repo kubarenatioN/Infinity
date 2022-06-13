@@ -6,10 +6,12 @@
 			</h2>
 			<ul class="collections__list">
 				<li 
-					*ngFor="let item of items"
+					*ngFor="let item of (items | async) | slice:0:9"
 					class="collections__list-item">
-					<a class="collections__item" href="#">
-						<img class="collections__item-img" src="db/images/collections/collection-1.png" alt="Collection Icon">
+					<a class="collections__item"
+						[routerLink]="['/explore/collection']"
+						[queryParams]="{id: item.id}">
+						<img class="collections__item-img" src="http://localhost:3002/db/images/collections/icon-{{item.id}}.png" alt="Collection Icon">
 						<div class="collections__item-info">
 							<div class="info-left">
 								<h5 class="collections__item-name">
@@ -21,7 +23,7 @@
 							</div>
 							<div class="info-right">
 								<span class="collections__item-change">
-									{{item.change}}
+									{{item.change | percent}}
 								</span>
 							</div>
 						</div>

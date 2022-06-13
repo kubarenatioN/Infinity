@@ -1,0 +1,45 @@
+<div class="stats__wrapper">
+	<div class="container">
+		<div class="stats">
+			<div class="stats__heading">
+				<h2 class="stats__title title">
+					Top NFTs
+				</h2>
+				<p class="stats__subtitle">
+					The top NFTs on Infinity, ranked by volume, floor price and other statistics.
+				</p>
+			</div>
+
+			<div class="stats__filters">
+
+			</div>
+
+			<div class="stats__content">
+				<div class="stats__table" matSort [matSortDisableClear]="true" (matSortChange)="sortData($event)">
+					<div class="stats__table-header">
+						<span class="col col-header col-collection" [mat-sort-header]="sortColumns.Name">Collection</span>
+						<span class="col col-header col-floor" [mat-sort-header]="sortColumns.Floor">Floor</span>
+						<span class="col col-header col-change" [mat-sort-header]="sortColumns.Change">% Change</span>
+					</div>
+
+					<a
+					class="stats__table-row"
+					*ngFor="let col of collections$ | async"
+					[routerLink]="['/explore/collection']"
+					[queryParams]="{id: col.id}">
+						<span class="col col-cell col-collection">
+							<img
+							class="stats__row-icon"
+							src="http://localhost:3002/db/images/collections/icon-{{col.id}}.png" alt="">
+							<span>
+								{{col.name}}
+							</span>
+						</span>
+						<span class="col col-cell col-floor">{{col.floor}} ETH</span>
+						<span class="col col-cell col-change">{{col.change}}</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

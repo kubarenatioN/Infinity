@@ -1,44 +1,16 @@
 <swiper
-	class="slider1"
+	class="slider"
+	[ngClass]="backwards ? 'back' : 'forward'"
 	[config]="config"
+	#swiper
+	(swiper)="onSwiper($event)"
+	(resize)="onResize($event)"
     >
       <ng-template swiperSlide
 	  	class="slide-wrapper"
-	  	*ngFor="let slide of slides">
-		  <div class="slide">
-			  <img src="db/images/top-sales/{{slide.img}}" alt="">
-			  <p class="name">{{slide.name}}</p>
-			  <a class="collection" href="#">Crypto Unicorns Market</a>
-			  <div class="footer">
-				  <span class="price">
-					  50 ETH
-				  </span>
-				  <a href="#" class="purchase">
-					  Buy now
-				  </a>
-			  </div>
-		  </div>
-	  </ng-template>
-</swiper>
-<swiper
-	class="slider2"
-	[config]="config2"
-    >
-      <ng-template swiperSlide 
-	  	class="slide-wrapper"
-	  	*ngFor="let slide of slides.reverse()">
-		  <div class="slide">
-			  <img src="db/images/top-sales/{{slide.img}}" alt="">
-			  <p class="name">{{slide.name}}</p>
-			  <a class="collection" href="#">Crypto Unicorns Market</a>
-			  <div class="footer">
-				  <span class="price">
-					  50 ETH
-				  </span>
-				  <a href="#" class="purchase">
-					  Buy now
-				  </a>
-			  </div>
-		  </div>
+	  	*ngFor="let item of items$ | async">
+		<div class="slide__wrapper">
+			<app-nft-card [item]="item"></app-nft-card>	
+		</div>
 	  </ng-template>
 </swiper>

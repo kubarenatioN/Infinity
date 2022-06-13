@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { collectionsMock } from 'src/app/mocks/collections.mock';
+import { DataManagementService } from 'src/app/services/data-management.service';
+import { DataStoreService } from 'src/app/services/data-store.service';
 
 @Component({
   selector: 'app-top-collections',
@@ -8,11 +10,15 @@ import { collectionsMock } from 'src/app/mocks/collections.mock';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TopCollectionsComponent implements OnInit {
-  public items = collectionsMock
+  public items = this.dataStore.collections$
   
-  constructor() { }
+  constructor(
+    private dataManagement: DataManagementService,
+    private dataStore: DataStoreService,
+  ) { }
 
   ngOnInit(): void {
+    this.dataManagement.getAllCollections()
   }
 
 }

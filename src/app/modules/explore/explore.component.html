@@ -1,46 +1,69 @@
 <div class="explore__wrapper">
 	<div class="container">
 		<div class="explore">
-			<div class="explore__heading">
+			<div class="explore__heading" *ngIf="collection$ | async as collection">
+				<img 
+				class="explore__bg"
+				src="http://localhost:3002/db/images/collections/bg-{{collection.id}}.png">
+				<img 
+				class="explore__icon"
+				src="http://localhost:3002/db/images/collections/icon-{{collection.id}}.png"
+				alt="">
 				<h2 class="explore__title">
-					{{ (collection$ | async)?.name }}
+					{{ collection.name }}
 				</h2>
 			</div>
-			<div class="explore__inner">
-				<form #filtersForm="ngForm" class="explore__filters">
-					<div
-						class="filter__group filter__attribute"
-						*ngFor="let attribute of (collection$ | async)?.attributes">
-						<mat-expansion-panel>
-							<mat-expansion-panel-header>
-								<mat-panel-title>
-									{{ attribute.name }}
-								</mat-panel-title>
-							</mat-expansion-panel-header>
-							<div class="options__list">
-								<mat-checkbox
-									*ngFor="let opt of attribute.options"
-									[name]="opt"
-									[(ngModel)]="
-										model.attributesMapping[attribute.name][
-											opt
-										]
-									"
-								>
-									{{ opt }}
-								</mat-checkbox>
-							</div>
-						</mat-expansion-panel>
-					</div>
-				</form>
-				<div class="explore__content">
-					<div class="explore__sorting"></div>
-					<div class="explore__catalog">
-						<app-catalog [items]="(items$ | async) || []">
-						</app-catalog>
+			<div class="explore__inner-wrapper">
+				<div class="explore__filters-btn">
+					<button
+						mat-raised-button
+						color="primary"
+						(click)="isFiltersOpen = !isFiltersOpen">
+						Open Filters
+					</button>
+				</div>
+				<div class="explore__inner">
+					<form #filtersForm="ngForm" class="explore__filters"
+					[ngClass]="isFiltersOpen ? 'active' : ''">
+						<div class="filter__heading">
+							<span>Filters</span>
+							<span class="material-icons-outlined filter-icon">filter_alt</span>
+						</div>
+						<div
+							class="filter__group filter__attribute"
+							*ngFor="let attribute of (collection$ | async)?.attributes">
+							<mat-expansion-panel class="filter__item">
+								<mat-expansion-panel-header>
+									<mat-panel-title class="filter__item-title">
+										{{ attribute.name }}
+									</mat-panel-title>
+								</mat-expansion-panel-header>
+								<div class="options__list">
+									<mat-checkbox
+										*ngFor="let opt of attribute.options"
+										[name]="opt"
+										[(ngModel)]="
+											model.attributesMapping[attribute.name][
+												opt
+											]
+										"
+									>
+										{{ opt }}
+									</mat-checkbox>
+								</div>
+							</mat-expansion-panel>
+						</div>
+					</form>
+					<div class="explore__content">
+						<div class="explore__sorting"></div>
+						<div class="explore__catalog">
+							<app-catalog [items]="(items$ | async) || []">
+							</app-catalog>
+						</div>
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 </div>

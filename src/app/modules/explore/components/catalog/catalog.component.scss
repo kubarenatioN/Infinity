@@ -7,12 +7,56 @@
 	&__item-wrapper {
 		width: 25%;
 		padding: 0 8px;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
 	&__item {
 		display: inline-block;
-		border-radius: 15px;
-		padding: 10px;
+		border-radius: 10px;
 		background-color: var(--black);
+		overflow: hidden;
+	}
+}
+
+.name {
+	font-size: 18px;
+}
+
+.buy {
+	padding: 3px 12px;
+	background-color: var(--accent-1);
+	border-radius: 10px;
+	font-size: 12px;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	padding: 10px;
+}
+
+@media (max-width: 1200px) {
+	.catalog{	
+		&__item-wrapper {
+			width: 33%;
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	.catalog{
+		&__item-wrapper {
+			width: 50%;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.catalog{	
+		&__item-wrapper {
+			max-width: 300px;
+			margin: 0 auto;
+			width: 100%;
+		}
 	}
 }

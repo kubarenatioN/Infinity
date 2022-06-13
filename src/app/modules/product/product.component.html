@@ -5,62 +5,52 @@
 			<div class="product">
 				<div class="product__top">
 					<div class="product__image">
-						<img src="http://localhost:3002/db/images/products/{{product.img}}" alt="">
+						<img src="http://localhost:3002/db/images/products/{{product.collectionId}}/{{product.img}}" alt="">
 					</div>
 					<div class="product__content">
-						<h2 class="product__title title">
-							{{product.name}}
-						</h2>
-						<div class="product__subheading">
+						<div class="product__heading">
+							<h2 class="product__title title">
+								{{product.name}}
+							</h2>
 							<span class="product__subheading-id">
 								#{{product.id}}
 							</span>
-							<ul class="product__subheading-tags">
-								tags
-							</ul>
 						</div>
-						<p class="product__descr">
-							descr
-						</p>
 						<div class="product__price-wrapper">
-							<span>Last Price</span>
+							<span>Last Price:</span>
 							<span class="product__price">{{product.price}} ETH</span>
 						</div>
 						<a 
-							[routerLink]="['/purchase']"
+							[routerLink]="['']"
 							[queryParams]="{id: product.id}" 
 							class="product__purchase">
 							Buy now
 						</a>
+
+						<p class="a-label">Attributes:</p>
+						<ul class="product__props">
+							<li 
+							*ngFor="let a of attributesMap$ | async"
+							class="product__prop">
+								<span class="prop">{{a[0]}}: </span>
+								<span class="value">{{a[1]}}</span>
+							</li>
+						</ul>
 					</div>
 				</div>
-				<ul class="product__props">
-					<li 
-					*ngFor="let a of attributesMap$ | async"
-					class="product__prop">
-						<span>{{a[0]}}:</span>
-						<span>{{a[1]}}</span>
-					</li>
-				</ul>
+
 				<div class="product__other">
 					<h3 class="product__other-title">
 						Other from this collection
 					</h3>
 					<swiper
+						class="product__other-slider"
 						[config]="(config$ | async) || {}">
 						<ng-template 
 							*ngFor="let p of otherProducts$ | async | slice:0:5"
 							swiperSlide>
 							<div class="slide-wrapper">
-								<a 
-								[routerLink]="['/product']"
-								[queryParams]="{id: p.id}"	
-								class="slide">
-									<img src="http://localhost:3002/db/images/products/{{p.img}}" alt="">
-									<p class="name">
-										{{p.name}}
-									</p>
-								</a>
+								<app-nft-card [item]="p"></app-nft-card>
 							</div>
 						</ng-template>
 					</swiper>

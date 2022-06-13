@@ -1,0 +1,52 @@
+<div class="create__wrapper">
+	<div class="container">
+		<div class="create">
+
+			<form class="create__form" #form="ngForm" (ngSubmit)="create()">
+				<mat-form-field appearance="fill">
+					<mat-label>Collection name</mat-label>
+					<input matInput placeholder="Name"
+					[(ngModel)]="model.name" name="name">
+				</mat-form-field>
+			  
+				<mat-form-field appearance="fill">
+					<mat-label>Description</mat-label>
+					<textarea matInput placeholder="Write something inspiring"
+					[(ngModel)]="model.descr" name="descr"></textarea>
+				</mat-form-field>
+
+				<mat-form-field appearance="fill">
+					<mat-label>Favorite Fruits</mat-label>
+					<input placeholder="Add attribute"
+							[matChipInputFor]="chipList"
+							[matChipInputAddOnBlur]="false"
+							(matChipInputTokenEnd)="addAttribute($event)">
+					<mat-chip-list #chipList aria-label="Attributes">
+						<mat-chip 
+						class="attribute__chip"
+						*ngFor="let a of attributes" 
+						(removed)="removeAttribute(a.name)">
+							{{a.name}}
+							<!-- <input type="text">
+							<div class="attribute__values">
+								<mat-chip (removed)="removeOption(a.name)">
+									qwe
+								</mat-chip>
+								<button matChipRemove>
+									<mat-icon>cancel</mat-icon>
+								</button>
+							</div> -->
+							<button matChipRemove>
+								<mat-icon>cancel</mat-icon>
+							</button>
+						</mat-chip>
+					</mat-chip-list>
+				</mat-form-field>
+
+				<button mat-raised-button color="primary">Create</button>
+
+			  </form>
+
+		</div>
+	</div>
+</div>

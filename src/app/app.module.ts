@@ -8,10 +8,13 @@ import { ProductsSwiperComponent } from './components/products-swiper/products-s
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { NftCardComponent } from './components/nft-card/nft-card.component';
+import { PercentPipePipe } from './pipes/percent-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PercentPipePipe,
   ],
   imports: [
     BrowserModule,

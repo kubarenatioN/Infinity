@@ -1,0 +1,155 @@
+.product{
+	padding: 80px 0;
+	&__top {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__image {
+		width: 50%;
+
+		& img {
+			width: 400px;
+			height: 400px;
+			object-fit: contain;
+			margin-left: auto;
+			display: block;
+		}
+		padding-right: 40px;
+	}
+
+	&__content {
+		padding-top: 20px;
+		flex-grow: 1;
+		max-width: 50%;
+		width: 100%;
+	}
+
+	&__heading {
+		display: flex;
+		width: 400px;
+		justify-content: space-between;
+		align-items: flex-end;
+		border-bottom: 1px solid var(--white);
+		padding-bottom: 8px;
+	}
+	&__title {
+		line-height: 42px;
+	}
+	&__subheading-id {
+		font-size: 24px;
+	}
+
+	&__price-wrapper {
+		padding: 10px 0;
+		margin-top: 60px;
+	}
+	&__price {
+		font-size: 36px;
+		padding-left: 10px;
+	}
+
+	&__purchase {
+		display: inline-block;
+		margin-top: 20px;
+		padding: 8px 24px;
+		font-size: 20px;
+		border-radius: 10px;
+		background-color: var(--accent-1);
+	}
+
+	&__props {
+		width: 260px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	&__prop {
+		width: 100px;
+		display: flex;
+		padding: 10px 0;
+		position: relative;
+		padding-left: 20px;
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 48%;
+			width: 10px;
+			height: 10px;
+			transform: translateY(-50%) rotate(45deg);
+			background-color: var(--accent-1);
+		}
+		& .prop {
+			padding-right: 8px;
+		}
+		& .prop,
+		& .value {
+			text-transform: capitalize;
+		}
+	}
+
+	&__other {
+		max-width: 1000px;
+		margin: 0 auto;
+		margin-top: 80px;
+	}
+	&__other-title {
+		padding: 20px 0;
+		font-size: 24px;
+	}
+
+}
+.a-label {
+	margin-top: 20px;
+}
+
+@media (max-width: 1000px) {
+	.product {
+		&__image {
+			padding-right: 20px;
+			& img {
+				width: 100%;
+			}
+		}
+		&__heading {
+			width: 100%;
+		}
+		&__price-wrapper {
+			margin-top: 10px;
+		}
+		&__other {
+			max-width: 640px;
+		}
+	}
+}
+
+@media (max-width: 640px) {
+	.product {
+		padding-top: 40px;
+		&__top {
+			padding-top: 0;
+			flex-direction: column;
+		}
+		&__image {
+			width: 100%;
+			padding-right: 0;
+			& img {
+				height: 300px;
+			}
+		}
+		&__content {
+			max-width: 400px;
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.product {
+		&__other {
+			max-width: 300px;
+		}
+	}
+}

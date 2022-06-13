@@ -25,3 +25,14 @@
 		}
 	}
 }
+
+@media (max-width: 640px) {
+	.footer {
+		&__inner {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+}

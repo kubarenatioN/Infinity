@@ -1,0 +1,46 @@
+<div class="profile__wrapper">
+	<div class="container">
+		<div class="profile" *ngIf="user$ | async as user">
+			<div class="profile__header">
+				<div class="profile__userinfo">
+					<img src="http://localhost:3002/db/images/user-avatars/1.png" alt="" class="avatar">
+					<h2 class="name">
+						{{user.name}}
+					</h2>
+				</div>
+			</div>
+			<div class="profile__inner">
+				<ng-template #emptyList>
+					<p>No items...</p>
+				</ng-template>
+				<mat-tab-group mat-align-tabs="center">
+					<mat-tab label="My NFTs">
+						<div class="profile__tab-wrapper" *ngIf="userItems$ | async as items; else emptyList">
+							<div class="profile__item"
+								*ngFor="let item of items">
+
+								<app-nft-card [item]="item"></app-nft-card>
+							</div>
+						</div>
+					</mat-tab>
+					<mat-tab label="On Sale">
+						<div class="profile__tab-wrapper" *ngIf="userOnSale$ | async as onSale; else emptyList">
+							<div class="profile__item"
+								*ngFor="let item of onSale">
+								<app-nft-card [item]="item"></app-nft-card>
+							</div>
+						</div>
+					</mat-tab>
+					<mat-tab label="Sold">
+						<div class="profile__tab-wrapper" *ngIf="userSold$ | async as sold; else emptyList">
+							<div class="profile__item"
+								*ngFor="let item of sold">
+								<app-nft-card [item]="item"></app-nft-card>
+							</div>
+						</div>
+					</mat-tab>
+				</mat-tab-group> 
+			</div>
+		</div>
+	</div>
+</div>
